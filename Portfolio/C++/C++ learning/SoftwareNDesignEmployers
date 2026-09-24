@@ -1,0 +1,238 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<string> inventory = {"Barrel x 3", "Paper x 64"};
+vector<string> employees = {"Paul", "Steve"};
+vector<string> orders = {};
+vector<string> employeeOrders = {};
+
+// managers
+
+
+void Inventory(){
+   
+   
+    cout << "The current Inventory is: " << endl;
+    for(const auto& Inv : inventory) {
+        cout << Inv << endl;
+    }
+   
+    int option = 0;
+    string addItem;
+    int index;
+   
+   
+    while(option != 4){
+       
+        cout << "Press 1: To Add items to the inventory " << endl;
+        cout << "Press 2: To Edit items to the inventory " << endl;
+        cout << "Press 3: To Remove items to the inventory " << endl;
+        cout << "Press 4: To continue" << endl;
+        cin >> option;
+        cin.ignore();
+       
+        if(option == 1){
+            cout << "Enter a item to add";
+            getline(cin, addItem);
+            inventory.push_back(addItem);
+        }
+        else if(option == 2){
+            cout << "What index would you like to change? " << endl;
+            cin >> index;
+            cin.ignore();
+            cout << "Enter the New item" << endl;
+            getline(cin, addItem);
+            inventory[index] = addItem;
+        }
+        else if(option == 3){
+            cout << "What index would you like to remove? " << endl;
+            cin >> index;
+            cin.ignore();
+           
+            inventory.erase(inventory.begin() + index);
+        }
+        else if(option == 4){
+            cout << "Okay!" << endl;
+        }
+        else{
+            cout << "Invalid Choice";
+           
+        }
+       
+       
+    }
+    cout << "The current Inventory is: " << endl;
+    for(const auto& Inventory : inventory) {
+        cout << Inventory << endl;
+    }
+   
+   
+}
+
+void Employee(){
+   
+   
+    cout << "The current list of employees is: " << endl;
+    for(const auto& Emp : employees) {
+        cout << Emp << endl;
+    }
+   
+    int option = 0;
+    string addEmployee;
+    int index;
+   
+   
+    while(option != 4){
+       
+        cout << "Press 1: To Add a Employee " << endl;
+        cout << "Press 2: To Edit a Employee " << endl;
+        cout << "Press 3: To Remove a Employee " << endl;
+        cout << "Press 4: To continue" << endl;
+        cin >> option;
+        cin.ignore();
+       
+        if(option == 1){
+            cout << "Enter a Employee to add";
+            getline(cin, addEmployee);
+            employees.push_back(addEmployee);
+        }
+        else if(option == 2){
+            cout << "What index would you like to change? " << endl;
+            cin >> index;
+            cin.ignore();
+            cout << "Enter the new name of Employee " << endl;
+            getline(cin, addEmployee);
+            employees[index] = addEmployee;
+        }
+        else if(option == 3){
+            cout << "What index would you like to remove? " << endl;
+            cin >> index;
+            cin.ignore();
+           
+            employees.erase(employees.begin() + index);
+        }
+        else if(option == 4){
+            cout << "Okay!";
+        }
+        else{
+            cout << "Invalid Choice";
+           
+        }
+       
+       
+    }
+    cout << "The current list of employees is: " << endl;
+    for(const auto& Employee : employees) {
+        cout << Employee << endl;
+    }
+   
+}
+
+void Tasks(){
+   
+   
+    int option = 0;
+    string addOrder;
+    int index;
+   
+   
+    while(option != 3){
+       
+        cout << "Press 1: Place a Order " << endl;
+        cout << "Press 2: To edit a Order " << endl;
+        cout << "Press 3: To continue " << endl;
+        cin >> option;
+       
+        if(option == 1){
+            cout << "Enter a Order: " << endl;
+            getline(cin, addOrder);
+            orders.push_back(addOrder);
+        }
+        else if(option == 2){
+            cout << "Enter a Index: " << endl;
+            cin >> index;
+            cin.ignore();
+           
+           
+            cout << "Enter a Order: " << endl;
+            getline(cin, addOrder);
+            orders[index] = addOrder;
+           
+        }
+        else if(option == 3){
+            cout << "Okay! " << endl;
+        }
+       
+        else{
+            cout << "Invalid  "<< endl;
+        }
+    }
+    cout << "The current Order for the customers are: " << endl;
+    for(const auto& Tasks : orders) {
+        cout << Tasks << endl;
+    }
+   
+ 
+   
+   
+}
+
+void Order(){
+   
+    int option = 0;
+    string addOrder;
+    int index;
+   
+   
+    while(option != 3){
+       
+        cout << "Press 1: Place a Order for the employee " << endl;
+        cout << "Press 2: To edit a Order " << endl;
+        cout << "Press 3: To continue " << endl;
+        cin >> option;
+       
+        if(option == 1){
+            cout << "Enter a Order: " << endl;
+            getline(cin, addOrder);
+            employeeOrders.push_back(addOrder);
+        }
+        else if(option == 2){
+            cout << "Enter a Index: " << endl;
+            cin >> index;
+            cin.ignore();
+           
+           
+            cout << "Enter a Order: " << endl;
+            getline(cin, addOrder);
+            employeeOrders[index] = addOrder;
+           
+        }
+        else if(option == 3){
+            cout << "Okay! " << endl;
+        }
+       
+        else{
+            cout << "Invalid  "<< endl;
+        }
+    }
+    cout << "The current Order for: " << "is: " << endl; // implement employee
+   
+    for(const auto& Order : employeeOrders) {
+        cout << Order << endl;
+    }
+   
+   
+   
+}
+
+
+int main() {
+    Inventory();
+    Employee();
+    Tasks();
+    Order();
+
+    return 0;
+}
