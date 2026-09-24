@@ -1,0 +1,11 @@
+CREATE TABLE users (
+    username VARCHAR(30) PRIMARY KEY,
+    password VARCHAR(50),
+    role VARCHAR(10)
+);
+
+CREATE TABLE files (
+    filename VARCHAR(50) PRIMARY KEY,
+    owner VARCHAR(50),
+    size BIGINT
+);
