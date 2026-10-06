@@ -1,0 +1,59 @@
+
+version: '3.8'
+
+services:
+  # 1. Main Development VM (Requirement 17 - Your JavaFX UI runs here)
+  ntu-vm-comp20081:
+    container_name: ntu-vm-comp20081
+    image: pedrombmachado/ntu_lubuntu:comp20081
+    ports:
+      - "3390:3389"  # Remote Desktop Port
+      - "2022:22"    # SSH Port
+    volumes:
+      - docker_comp20081:/home/ntu-user/NetBeansProjects
+    networks:
+      - comp20081_network
+
+  # 2. Remote MySQL Database (Requirement 13)
+  mysql-db:
+    container_name: mysql-db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ntu-user
+      MYSQL_DATABASE: system_soft_db
+    ports:
+      - "3306:3306"
+    networks:
+      - comp20081_network
+
+  # 3. Four Storage Containers (Requirement 16 & 20 - For File Chunking)
+  container1:
+    container_name: container1
+    image: pedrombmachado/simple-ssh-container:base
+    networks:
+      - comp20081_network
+
+  container2:
+    container_name: container2
+    image: pedrombmachado/simple-ssh-container:base
+    networks:
+      - comp20081_network
+
+  container3:
+    container_name: container3
+    image: pedrombmachado/simple-ssh-container:base
+    networks:
+      - comp20081_network
+
+  container4:
+    container_name: container4
+    image: pedrombmachado/simple-ssh-container:base
+    networks:
+      - comp20081_network
+
+networks:
+  comp20081_network:
+    driver: bridge
+
+volumes:
+  docker_comp20081:

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #2b2b2b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.mycompany.systemsoftproject.controllers.LoginController">
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+    <children>
+        <Label text="SYSTEM ACCESS" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" />
+        <TextField fx:id="userField" promptText="Username" style="-fx-background-color: #3c3f41; -fx-text-fill: white;" />
+        <PasswordField fx:id="passField" promptText="Password" style="-fx-background-color: #3c3f41; -fx-text-fill: white;" />
+        <Button text="INITIALIZE LOGIN" onAction="#handleLogin" maxWidth="Infinity" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+        <Label fx:id="errorLabel" textFill="#ff6b6b" />
+    </children>
+</VBox>

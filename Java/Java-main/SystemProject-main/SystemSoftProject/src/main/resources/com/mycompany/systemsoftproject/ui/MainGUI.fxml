@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #2b2b2b;" 
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.mycompany.systemsoftproject.controllers.Controller">
+    
+    <Label text="SYSTEM TERMINAL" style="-fx-text-fill: white; -fx-font-weight: bold;" />
+    
+    <TextArea fx:id="terminalOutput" editable="false" prefHeight="400" 
+              style="-fx-control-inner-background: black; -fx-text-fill: #00FF00; -fx-font-family: 'Courier New';" />
+    
+    <TextField fx:id="commandInput" onAction="#handleCommand" promptText="Type command and press Enter..." />
+    
+    <HBox spacing="10">
+        <Button text="System Health" onAction="#showHealth" />
+        <Button text="Sync Data" onAction="#triggerSync" />
+    </HBox>
+    
+</VBox>
